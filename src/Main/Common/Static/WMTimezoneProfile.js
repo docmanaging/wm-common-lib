@@ -1,16 +1,8 @@
-//Time Zone Profile
-const mysql = require('mysql');
 const util = require('util');
-//create connection to mysql DB
-const connection = mysql.createConnection({
-  host     : process.env.RDS_HOSTNAME,
-  user     : process.env.RDS_USERNAME,
-  password : process.env.RDS_PASSWORD,
-  port     : process.env.RDS_PORT,
-  database : process.env.RDS_DATABASE
-});
+var conn = require('./connection');
+
 //connect to mysql DB
-connection.connect();
+conn.connection.connect();
 
 //function for getting Timezone data based on Day
 async function getTimezoneProfile(requestParams,context){
